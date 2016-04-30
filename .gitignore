@@ -1,0 +1,13 @@
+/Source/private-services/web/bundles/
+/Source/private-services/app/bootstrap.php.cache
+/Source/private-services/app/cache/*
+/Source/private-services/app/config/parameters.yml
+/Source/private-services/app/logs/*
+!Source/private-services/app/cache/.gitkeep
+!Source/private-services/app/logs/.gitkeep
+/Source/private-services/app/phpunit.xml
+/Source/private-services/build/
+/Source/private-services/vendor/
+/Source/private-services/bin/
+/Source/private-services/composer.phar
+/Config/.vagrant
