@@ -1,14 +1,26 @@
-hosts-datei
+0. Install symfony
+	- composer install
+		- database_name: private-services
+		- database_password: 123
+1. Install Vagrant
+2. Install box
+	- vagrant up
+	
+3. hosts-datei
 192.168.56.200 private-services.devel
 192.168.56.200 www.private-services.devel
 
-sudo su && \
-apt-get update && \
-apt-get install apache2 && \
-apt-get install php5 && \
+4. server set up
+sudo su 
+apt-get update 
+apt-get install apache2 
+apt-get install php5 
 apt-get install mariadb-server
 
+db user: root
+db password: 123
 
+5. APACHE SETUP FOR SYMFONY
 cd /etc/apache2/sites-available/
 cp 000-default.conf private-services.conf
 
@@ -82,3 +94,4 @@ cp 000-default.conf private-services.conf
 
 sudo a2enmod rewrite
 sudo a2ensite private-services
+sudo service apache2 restart
