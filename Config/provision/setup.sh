@@ -15,7 +15,7 @@ echo "Provisioning virtual machine..."
 echo "Update Software-Packages"
 apt-get update > /dev/null
 
-echo "Installing Apache"
+echo "Installing Apache2"
 apt-get install -y apache2 $VERBOSE
 
 echo "Installing PHP"
@@ -37,7 +37,7 @@ debconf-set-selections <<< "mariadb-server-$MARIADB_VERSION mariadb-server/root_
 echo "Installing MariaDB"
 apt-get install mariadb-server -y $VERBOSE
 
-echo "Configuring Apache"
+echo "Configuring Apache2"
 cp /vagrant/provision/config/private-services.conf /etc/apache2/sites-available/private-services.conf
 a2enmod rewrite $VERBOSE
 a2ensite private-services $VERBOSE
