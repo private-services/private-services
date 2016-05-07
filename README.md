@@ -26,6 +26,7 @@
 
 
 4. Enable XDebug
+	- Provisioning will install Xdebug and config-file
     - PHP-Storm->Settings
         - Languages & Frameworks > PHP
 			- Interpreter > ... > + > Remote
@@ -43,4 +44,17 @@
 				- Use path mappings: true
 					- File/Directory: <PathToProject>/Source/private-services/
 					- Absolute path on server: /var/www/private-services
+					
+5. Enable PHPUnit
+	- create Source/private-services/app/phpunit.xml from Source/private-services/app/phpunit.xml.dist
+	- Install PHPUnit if not already installed (which it should be):  composer require phpunit
+    - PHP-Storm->Settings
+		- Languages & Frameworks > PHP > PHPUnit > + (By remote interpreter)
+			- Use custom autoloader: true
+			- Path to script: /var/www/private-services/vendor/autoload.php
+			- Default configuration file: /var/www/private-services/app/phpunit.xml
+	- Run > Edit Configurations > + (PHPUnit)
+		- Name: private-services
+		- Use alternative configuration file: D:\projects\private_services\Source\private-services\app\phpunit.xml
+				
 					
