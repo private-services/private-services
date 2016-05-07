@@ -21,7 +21,7 @@ apt-get install -y apache2 $VERBOSE
 echo "Installing PHP"
 #maybe switch to php5-fpm
 #apt-get install php5-common php5-dev php5-cli php5-fpm -y $VERBOSE
-apt-get install php5
+apt-get install php5 -y
 
 echo "Installing PHP extensions"
 # if we need extension
@@ -29,8 +29,7 @@ echo "Installing PHP extensions"
 
 echo "Preparing MariaDB"
 apt-get install debconf-utils -y $VERBOSE
-# to disable interactive mode not because we'r root hopefully
-#export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 debconf-set-selections <<< "mariadb-server-$MARIADB_VERSION mariadb-server/root_password password $ROOTDBPWD"
 debconf-set-selections <<< "mariadb-server-$MARIADB_VERSION mariadb-server/root_password_again password $ROOTDBPWD"
 
