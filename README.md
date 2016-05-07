@@ -23,3 +23,24 @@
 3. Adjust hosts-file on host system (windows/system32/etc/host)
 	- 192.168.56.200 private-services.devel
     - 192.168.56.200 www.private-services.devel
+
+
+4. Enable XDebug
+    - PHP-Storm->Settings
+        - Languages & Frameworks > PHP
+			- Interpreter > ... > + > Remote
+				- SSH Credentials
+				- Host: private-services.devel
+				- User name: vagrant
+				- Auth type: Password
+				- Password: vagrant
+			- Path mappings > ...
+				- Local Path: <PathToProject>/Source/private-services
+				- Remote Path: /var/www/private-services
+			- Servers > +
+				- Name: private-services
+				- Host: private-services.devel
+				- Use path mappings: true
+					- File/Directory: <PathToProject>/Source/private-services/
+					- Absolute path on server: /var/www/private-services
+					
