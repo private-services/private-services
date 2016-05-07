@@ -26,6 +26,8 @@ apt-get install php5 -y
 echo "Installing PHP extensions"
 # if we need extension
 #apt-get install curl php5-curl php5-gd php5-mcrypt php5-mysql -y $VERBOSE
+apt-get install php5-xdebug -y $VERBOSE
+cp /vagrant/provision/config/zzzz-custom.ini /etc/php5/apache2/conf.d/
 
 echo "Preparing MariaDB"
 apt-get install debconf-utils -y $VERBOSE
