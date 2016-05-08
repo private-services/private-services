@@ -4,8 +4,32 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+    #disable the legacy http_basic provider because of run into proble when it's enabled
+#        in_memory:
+#            memory:
+#              users:
+#                    ryan:
+#                        #password: ryanpass
+#                        password: $2y$12$sf3mRQV3EeKXZmCV7XdjmuWVNpZj5XxSfcNn4ysM.FpaTNktYFGvq
+#                        roles: 'ROLE_USER'
+#                    admin:
+#                        password: $2y$12$B2xx39HLqsjTEF0aUZQB/eFAGF7MISvReyLe.NHKUY3MwbM/LjYyi
+#                        #plain text password
+#                        #password: kitten
+#                        roles: 'ROLE_ADMIN'
+#                        #add a new field will not work out of the box therefor we need a custom user object
+#                        #welcomeText: 'you are super'
+        # set the custom user provider
+        custom:
+            id: app.custom_user_provider
+    encoders:
+            # in memory provider use Core\User\User Object therefor we've to assign the encoder algo
+            #Symfony\Component\Security\Core\User\User: plaintext
+            Symfony\Component\Security\Core\User\User:
+              # when using bycrypt we have to encrypt the passwort and add to user setting
+              algorithm: bcrypt
+              cost: 12
+            AppBundle\Security\User: plaintext
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,6 +39,10 @@ security:
 
         main:
             anonymous: ~
+            #http_basic: ~
+            #set the custom provider
+            http_basic:
+                provider: custom
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -22,3 +50,6 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: ROLE_ADMIN }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "04837a77ea0be2d7a599d7a28fc38af0",
-    "content-hash": "300a43a3fd1729add0921d8ae572daef",
+    "hash": "b1b1aa7cc37a68de85efa09a2d4de59f",
+    "content-hash": "eaee29e0e0af36f893036079d7528602",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2769,16 +2769,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.8.4",
+            "version": "v2.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "9e14f9f4869c19188a376eab61d9a1c1f1fee347"
+                "reference": "39ddd2383f4113cf67f8b28cde2c9d3fa340c3c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/9e14f9f4869c19188a376eab61d9a1c1f1fee347",
-                "reference": "9e14f9f4869c19188a376eab61d9a1c1f1fee347",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/39ddd2383f4113cf67f8b28cde2c9d3fa340c3c2",
+                "reference": "39ddd2383f4113cf67f8b28cde2c9d3fa340c3c2",
                 "shasum": ""
             },
             "require": {
@@ -2793,7 +2793,7 @@
                 "symfony/polyfill-php56": "~1.0",
                 "symfony/polyfill-php70": "~1.0",
                 "symfony/polyfill-util": "~1.0",
-                "symfony/security-acl": "~2.7",
+                "symfony/security-acl": "~2.7|~3.0.0",
                 "twig/twig": "~1.23|~2.0"
             },
             "conflict": {
@@ -2865,7 +2865,11 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Bridge\\": "src/Symfony/Bridge/",
+                    "Symfony\\Bridge\\Doctrine\\": "src/Symfony/Bridge/Doctrine/",
+                    "Symfony\\Bridge\\Monolog\\": "src/Symfony/Bridge/Monolog/",
+                    "Symfony\\Bridge\\ProxyManager\\": "src/Symfony/Bridge/ProxyManager/",
+                    "Symfony\\Bridge\\Swiftmailer\\": "src/Symfony/Bridge/Swiftmailer/",
+                    "Symfony\\Bridge\\Twig\\": "src/Symfony/Bridge/Twig/",
                     "Symfony\\Bundle\\": "src/Symfony/Bundle/",
                     "Symfony\\Component\\": "src/Symfony/Component/"
                 },
@@ -2895,7 +2899,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-03-27 12:57:53"
+            "time": "2016-04-29 15:34:08"
         },
         {
             "name": "twig/twig",

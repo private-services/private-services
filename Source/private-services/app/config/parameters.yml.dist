@@ -17,3 +17,7 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # set user collection
+    security.users:
+      - {login: 'username', password: 'secret', message: 'you are fantastic', roles: ['ROLE_ADMIN']}
